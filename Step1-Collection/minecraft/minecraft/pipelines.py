@@ -10,4 +10,8 @@ from itemadapter import ItemAdapter
 
 class MinecraftPipeline:
     def process_item(self, item, spider):
+        description = ''.join(item['Description'])
+        item['Description'] = description
+        tags = ','.join(item['Tags'])
+        item['Tags'] = tags
         return item
