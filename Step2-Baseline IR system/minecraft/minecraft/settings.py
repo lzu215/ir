@@ -13,13 +13,11 @@ SPIDER_MODULES = ['minecraft.spiders']
 NEWSPIDER_MODULE = 'minecraft.spiders'
 
 FEED_EXPORT_ENCODING = 'utf-8'
-ELASTICSEARCH_SERVERS = ['210.26.48.81']
-ELASTICSEARCH_PORT = 9201
-ELASTICSEARCH_USERNAME = 'wbliu20'
-ELASTICSEARCH_PASSWORD = '731126'
-ELASTICSEARCH_INDEX_DATE_FORMAT = '%Y-%m'
-ELASTICSEARCH_INDEX = 'wbliu20/project'
+
+ELASTICSEARCH_SERVERS = 'http://wbliu20:731126@210.26.48.81:9201'
+ELASTICSEARCH_INDEX = 'wbliu20_team_project'
 ELASTICSEARCH_TYPE = '_doc'
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) ' \

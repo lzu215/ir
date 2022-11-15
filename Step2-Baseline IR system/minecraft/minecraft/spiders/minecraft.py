@@ -6,7 +6,7 @@ class MinecraftSpider(scrapy.Spider):
     name = 'minecraft'
 
     def start_requests(self):
-        urls = ['https://www.planetminecraft.com/mods/?p={}'.format(i) for i in range(1, 2)]
+        urls = ['https://www.planetminecraft.com/mods/?p={}'.format(i) for i in range(1, 101)]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
         # url = 'https://www.planetminecraft.com/mod/hypixel-skyblockplus-renew/'
