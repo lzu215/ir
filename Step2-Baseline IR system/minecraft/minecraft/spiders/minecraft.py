@@ -28,5 +28,6 @@ class MinecraftSpider(scrapy.Spider):
             "Credit": response.xpath('//*[@id="resource_object"]/table//*[text()[contains(.,\'Credit\')]]/../td[2]//text()').extract_first(),
             "Progress": response.xpath('//*[@id="resource_object"]/table//*[text()[contains(.,\'Progress\')]]/../td[2]//text()').extract_first(),
             "Game Version": response.xpath('//*[@id="resource_object"]/table//*[text()[contains(.,\'Game Version\')]]/../td[2]//text()').extract_first(),
-            "Tags": response.xpath('//*[@id="item_tags"]//text()').extract()
+            "Tags": response.xpath('//*[@id="item_tags"]//text()').extract(),
+            "Url": response.url
         }

@@ -11,7 +11,7 @@ context.verify_mode = ssl.CERT_NONE
 
 es = Elasticsearch(
     ['121.43.234.160'],
-    http_auth=('username', 'password'),  # 在这里输入账户名和密码
+    http_auth=('wbliu20', '731126'),  # 在这里输入账户名和密码
     scheme="http",
     port=9200,
     ssl_context=context,
