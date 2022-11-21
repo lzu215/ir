@@ -16,3 +16,5 @@ ITEM_PIPELINES = {
     'scrapyelasticsearch.scrapyelasticsearch.ElasticSearchPipeline': 500
 }
 ```
++ new: 'http://wbliu20:731126@210.26.48.81:9201'
++ old: 'http://wbliu20:731126@121.43.234.160:9200'

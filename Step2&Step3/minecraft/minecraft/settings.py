@@ -13,8 +13,9 @@ SPIDER_MODULES = ['minecraft.spiders']
 NEWSPIDER_MODULE = 'minecraft.spiders'
 
 FEED_EXPORT_ENCODING = 'utf-8'
-
-ELASTICSEARCH_SERVERS = 'http://wbliu20:731126@210.26.48.81:9201'
+# new: 'http://wbliu20:731126@210.26.48.81:9201'
+# old: 'http://wbliu20:731126@121.43.234.160:9200'
+ELASTICSEARCH_SERVERS = 'http://wbliu20:731126@121.43.234.160:9200'
 ELASTICSEARCH_INDEX = 'wbliu20_team_project'
 ELASTICSEARCH_TYPE = '_doc'
 
