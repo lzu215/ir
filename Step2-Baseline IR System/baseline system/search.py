@@ -39,8 +39,13 @@ def search():
     query = {
         "from": 0, "size": 10,
         "query": {
-            "match": {
-                "Title": keywords
+            "multi_match": {
+                "query": keywords,
+                "fields": [
+                    "Title",
+                    "Description",
+                    "Tags"
+                ]
             }
         }
     }
