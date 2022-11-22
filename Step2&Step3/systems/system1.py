@@ -53,4 +53,4 @@ def search():
     # Send a search request with the query to server
     res = es.search(index="wbliu20_team_project", body=query)
     hits = res["hits"]["total"]["value"]
-    return render_template('results.html', keywords=keywords, hits=hits, docs=res["hits"])
+    return render_template('results.html', keywords=keywords, hits=hits, docs=res["hits"]["hits"])
