@@ -9,10 +9,12 @@ context = create_ssl_context()
 context.check_hostname = False
 context.verify_mode = ssl.CERT_NONE
 
-ip = '210.26.48.81'
-port = '9201'
-# ip = '121.43.234.160'
-# port = '9200'
+# new
+# ip = '210.26.48.81'
+# port = '9201'
+# old
+ip = '121.43.234.160'
+port = '9200'
 
 es = Elasticsearch(
     [ip],
