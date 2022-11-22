@@ -9,6 +9,6 @@ config(
     server_ip = "localhost",
     server_port = 9200,
     scheme = "http",
-    usename = "",
+    username = "",
     password = ""
 )

@@ -1,4 +1,5 @@
 var currentMsg = 0, transitionTime = 500, exitBlur = "2px";
+var msgRed = "rgb(200,0,0)", msgYellow = "rgb(233,170,4)", msgGreen = "rgb(42, 160, 33)", msgGray = "rgb(100,100,100)";
 
 $(function(){
     $("body").append("<div id = 'defaultBox'><div></div></div>");

@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename = 'logo.ico') }}" />
     <script src="{{ url_for('static', filename = 'js/jQuery.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/msgBox.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/search.js') }}"></script>
   </head>
   <body>
     <div id="navBarContainer">
@@ -18,7 +19,7 @@
           <div id="navTitle" onclick="self.location='{{ url_for('home') }}';">BEST</div>
           <div id="searchContainer">
               <input type="text" name="search" class="inputBox" id="searchBox" maxlength="30" title="Input content you search for" placeholder="Search" />
-              <img src="{{ url_for('static', filename = 'images/search.svg') }}" alt="search" id="search">
+              <img src="{{ url_for('static', filename = 'images/search.svg') }}" alt="search" id="search" onclick="search()">
           </div>
       </div>
       <div id="navRight">

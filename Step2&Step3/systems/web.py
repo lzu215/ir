@@ -1,10 +1,9 @@
 # Imports
 
-from flask import Flask, request, render_template, url_for
-from time import sleep
+from flask import Flask, request, render_template
 from sys import path
 from pathlib import Path
-from core import configs
+from core import configs, customDict
 
 
 # Constants
@@ -27,8 +26,10 @@ def home():
 
 
 @app.route("/api/<string:function>", methods = ("POST",))
-def api():
-    pass
+def api(function):
+    if function in configs.modules:
+        receive = customDict(request.values)
+        return str(configs.modules[function].execute(receive))
 
 
 # Main

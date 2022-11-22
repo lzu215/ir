@@ -12,13 +12,13 @@ config(
 
 # Functions
 
-def execute(keywords, start):
+def execute(receive):
     # Include the keywords in a query object (JSON)
     query = {
-        "from": start, "size": configs.search1.page_size,
+        "from": receive.start, "size": configs.search1.page_size,
         "query": {
             "multi_match": {
-                "query": keywords,
+                "query": receive.keywords,
                 "fields": [
                     "Title",
                     "Description",
@@ -29,7 +29,7 @@ def execute(keywords, start):
     }
 
     # Send a search request with the query to server
-    res = getES.search(index="wbliu20_team_project", body=query)
+    res = getES().search(index="wbliu20_team_project", body=query)
     hits = res["hits"]
     return hits
 
