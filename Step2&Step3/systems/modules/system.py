@@ -12,3 +12,9 @@ config(
     username = "",
     password = ""
 )
+
+
+# Functions
+
+def execute(receive):
+    pass

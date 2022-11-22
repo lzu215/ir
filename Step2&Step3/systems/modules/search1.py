@@ -29,7 +29,7 @@ def execute(receive):
     }
 
     # Send a search request with the query to server
-    res = getES().search(index="wbliu20_team_project", body=query)
+    res = getES().search(index = "wbliu20_team_project", body = query)
     hits = res["hits"]
     return hits
 

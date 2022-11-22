@@ -1,8 +1,19 @@
+$(function(){
+    $("#searchBox").keyup(function(event){
+        if(event.which == 13){
+            search();
+        }
+    });
+});
+
+
 function search(){
-    $.ajax({url: "api/search1", 
+    keywords = $("#searchBox").val();
+    if(!keywords){return;}
+    $.ajax({url: "search/search1", 
         method: "POST", 
         data: {
-            "keywords": $("#searchBox").val(),
+            "keywords": keywords,
             "start": 0
         }, 
         timeout: 10000})
@@ -10,7 +21,7 @@ function search(){
             alert(response);
         },
         function(){
-            popupMsg("发送失败  请稍后重试", msgRed);
+            popupMsg("Connection Failed", msgRed, "exclamation");
         })
         .always(function(){
             

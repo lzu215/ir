@@ -95,7 +95,7 @@
 
   #navTitle {
     font-size: 32px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-weight: bold;
     background-image: linear-gradient(45deg, #5fa441, #8cbe60);
     -webkit-background-clip: text;

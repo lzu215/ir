@@ -37,8 +37,8 @@ function popupMsg(message, color, icon, time, xPos, yPos){
     }, transitionTime);
         
     $(msgID + " .msgPrompt").css("color", fontColor);
-    $(msgID + " .icon").css({"background-image": "url(assets/images/" + icon + ".png)", "filter": (isLight(color) ? "invert(100%)" : "")});
-    $(msgID + " .close").css({"background-image": "url(assets/images/quit.png)", "filter": (isLight(color) ? "invert(100%)" : "")})
+    $(msgID + " .icon").css({"background-image": "url(static/images/" + icon + ".png)", "filter": (isLight(color) ? "invert(100%)" : "")});
+    $(msgID + " .close").css({"background-image": "url(static/images/quit.png)", "filter": (isLight(color) ? "invert(100%)" : "")})
     .attr("onclick", (defaultPosition ? defaultClose : outsideClose));
 
     if(defaultPosition){
