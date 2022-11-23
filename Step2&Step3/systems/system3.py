@@ -36,7 +36,29 @@ def home():
 def search():
     keywords = request.args.get('keywords')
     # Include the keywords in a query object (JSON)
-    query = {}
+    query = {
+        "query": {
+            "multi_match": {
+                "query": keywords,
+                "fields": [
+                    "Title^3",
+                    "Description",
+                    "Tags^2"
+                ]
+            }
+        },
+        "sort": {
+            "_score": {
+                "order": "desc"
+            },
+            "Downloads": {
+                "order": "desc"
+            },
+            "Views": {
+                "order": "desc"
+            }
+        }
+    }
 
     # Send a search request with the query to server
     res = es.search(index="wbliu20_team_project", body=query)
