@@ -1,11 +1,11 @@
 var currentMsg = 0, transitionTime = 500, exitBlur = "2px";
 var msgRed = "rgb(200,0,0)", msgYellow = "rgb(233,170,4)", msgGreen = "rgb(42, 160, 33)", msgGray = "rgb(100,100,100)";
 
-$(function(){
+$(function() {
     $("body").append("<div id = 'defaultBox'><div></div></div>");
 });
 
-function popupMsg(message, color, icon, time, xPos, yPos){
+function popupMsg(message, color, icon, time, xPos, yPos) {
     currentMsg ++;
     var gap = 20, direction, defaultPosition, msgID = "#msg" + currentMsg;
 
@@ -38,7 +38,7 @@ function popupMsg(message, color, icon, time, xPos, yPos){
         
     $(msgID + " .msgPrompt").css("color", fontColor);
     $(msgID + " .icon").css({"background-image": "url(static/images/" + icon + ".png)", "filter": (isLight(color) ? "invert(100%)" : "")});
-    $(msgID + " .close").css({"background-image": "url(static/images/quit.png)", "filter": (isLight(color) ? "invert(100%)" : "")})
+    $(msgID + " .close").css({"background-image": "url(static/images/quit.svg)", "filter": (isLight(color) ? "invert(100%)" : "")})
     .attr("onclick", (defaultPosition ? defaultClose : outsideClose));
 
     if(defaultPosition){
@@ -49,7 +49,7 @@ function popupMsg(message, color, icon, time, xPos, yPos){
     if(time != "inf"){setTimeout((defaultPosition ? defaultClose : outsideClose), time);}
 }
 
-function isLight(rgb){
+function isLight(rgb) {
     rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
     return 0.213 * rgb[1] + 0.715 * rgb[2] + 0.072 * rgb[3] > 255 / 2;
 }

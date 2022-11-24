@@ -9,7 +9,6 @@ from elasticsearch.connection import create_ssl_context
 from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
 from json import dumps, loads
-from threading import Thread
 from traceback import extract_stack
 
 
@@ -37,23 +36,7 @@ class config(): # Config of a module
         else:
             conf = readConfig(self.moduleName)
         configs[self.moduleName] = conf
-
-
-class customThread(Thread): # Customized thread that captures exceptions
-    def __init__(self, target, args):
-        super().__init__()
-        self.target = target
-        self.args = args
-        self.running = False
-
-    def run(self):
-        self.running = True # Set flag
-        try:
-            self.target(*(self.args))
-        except stopException:
-            pass
-        self.running = False
-
+        
 
 class customDict(dict): # Customized dict, where elements are accessible using attributes
     def __getattr__(self, __name):

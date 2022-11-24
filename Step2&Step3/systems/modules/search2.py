@@ -15,15 +15,15 @@ config(
 def execute(receive):
     # Include the keywords in a query object (JSON)
     query = {
-        "from": receive.start, 
-        "size": configs.search1.page_size,
+        "from": receive.start,
+        "size": configs.search2.page_size,
         "query": {
             "multi_match": {
                 "query": receive.keywords,
                 "fields": [
-                    "Title",
+                    "Title^3",
                     "Description",
-                    "Tags"
+                    "Tags^2"
                 ]
             }
         }

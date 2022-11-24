@@ -1,9 +1,8 @@
 # Imports
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from sys import path
 from pathlib import Path
-from json import dumps
 from core import configs, customDict
 
 
@@ -32,14 +31,14 @@ def search(system):
         receive = customDict(request.values)
         result = configs.modules[system].execute(receive)
         result["page_size"] = configs[system].page_size
-        return dumps(result)
+        return jsonify(result)
 
 
 @app.route("/system/<string:operation>", methods = ("POST",))
 def system(operation):
     receive = customDict(request.values)
     result = getattr(configs.modules.system, operation)(receive)
-    return dumps(result)
+    return jsonify(result)
 
 
 # Main

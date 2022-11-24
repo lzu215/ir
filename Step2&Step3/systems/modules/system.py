@@ -1,6 +1,7 @@
 # Imports
 
-from core import config
+from core import config, configs
+from re import match
 
 
 # Config
@@ -16,5 +17,5 @@ config(
 
 # Functions
 
-def execute(receive):
-    pass
+def getSearch(_):
+    return sorted([system for system in configs.modules if match("search\d", system)])
