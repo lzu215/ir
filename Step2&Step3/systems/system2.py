@@ -37,6 +37,8 @@ def search():
     keywords = request.args.get('keywords')
     # Include the keywords in a query object (JSON)
     query = {
+        "from": 0,
+        "size": 1000,
         "query": {
             "multi_match": {
                 "query": keywords,
