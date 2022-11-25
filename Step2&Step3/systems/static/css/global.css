@@ -1,3 +1,27 @@
+:root {
+  --transparent: #00000000;
+  --light-green: #6a882a;
+  --dark-green: #40742d;
+  --darker-green: #2a4f1d;
+  --background-white: #f5fbe4;
+  --element-white: #fafdfa;
+  --white-transparent-medium: #ffffff55;
+  --white-transparent-heavy: #ffffffaa;
+
+  --shadow-ultra-light: #00000008;
+  --shadow-light: #00000011;
+  --shadow-medium: #00000055;
+  --shadow-heavy: #00000099;
+
+  --tags-green: #3fa719;
+  --tags-light-green: #c4ed9f;
+  --tags-light-green-text: #399604;
+
+  --page-indicator: #13aa16;
+
+  --separator-line: #00000010;
+}
+
 @font-face {
   font-family: "ubuntu";
   src: url(../ubuntu.ttf);
@@ -5,7 +29,7 @@
 
 * {
   font-family: "ubuntu";
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: var(--transparent);
   transition: all 0.3s ease;
 }
 
@@ -16,7 +40,7 @@
     margin: 0;
     padding: 0;
     border: none;
-    background-color: #f5fbe4;
+    background-color: var(--background-white);
   }
 }
 

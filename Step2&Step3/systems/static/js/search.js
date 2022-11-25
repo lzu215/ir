@@ -1,5 +1,5 @@
 const 
-    TITLE_LENGTH = 40,
+    TITLE_LENGTH = 35,
     DESC_LENGTH = 250,
     MAX_PAGE_BUTTONS = 7; // Should not be less than 7
 
@@ -20,12 +20,12 @@ $(function() {
 
 
 function search(page) {
-    page = page || 1;
-    start = (page - 1) * pageSize;
-    keywords = $("#searchBox").val();
-    keywords = keywords ? keywords : keyword;
+    keywords = page ? keyword : $("#searchBox").val();
     if(!keywords) {popupMsg("Please type in some keywords", msgGray, "exclamation"); return;}
     kwTemp = keywords;
+    page = page || 1;
+    start = (page - 1) * pageSize;
+    gotoTop();
     $.ajax({url: `search/${$("#systems").val()}`, 
         method: "POST", 
         data: {
@@ -37,8 +37,13 @@ function search(page) {
             displayResults(response, start);
         },
         function() {
-            popupMsg("Connection failed\nPlease check your configs", msgRed, "exclamation");
-        });
+            popupMsg("Connection to Elastic Search server failed<br />Please check your configs", msgRed, "exclamation");
+    });
+}
+
+
+function gotoTop(){
+    $("html").stop(true, true).animate({"scrollTop": 0}, 200, "swing");
 }
 
 
@@ -53,7 +58,7 @@ function getSearchSystems() {
         },
         function() {
             popupMsg("Failed to get available search systems", msgRed, "exclamation");
-        })
+    });
 }
 
 
@@ -73,7 +78,6 @@ function displayResults(response, start) {
         pageSize = response.page_size;
         $("#searchBox").val(keyword);
         $("#resultsBox").html("");
-        $("#searchIndicator").html(`About ${total} results`);
         for(var r in response.hits) {
             hit = response.hits[r]._source;
             tags = hit.Tags.split(", ");
@@ -115,6 +119,9 @@ function displayResults(response, start) {
 
 
 function displayPages(total, start) {
+    pageEnd = start + (+pageSize);
+    $("#searchIndicator").html(`About ${total} results, displaying ${start + 1} - ${pageEnd <= total ? pageEnd : total}`);
+
     function range(lower, upper) {
         lower = lower || 0;
         return [...Array(upper + 1).keys()].slice(lower);
@@ -147,9 +154,13 @@ function displayPages(total, start) {
     for(var p in pages) {
         page = pages[p];
         if(page == 0) {
-            $("#pagesBox").append(`<div class="page pageEllipsis"><a>...</a></div>`);
+            $("#pagesBox").append(`<div class="page pageEllipsis"><a>···</a></div>`);
         }else {
-            $("#pagesBox").append(`<div class="page"${page == current ? " id='currentPage'" : ""} onclick='search(${page})'><a>${page}</a></div>`);
+            $("#pagesBox").append(`<div class="page"${page == current ? " id='currentPage'" : ""}><a>${page}</a></div>`);
         }
     }
+
+    $(".page").click(function() {
+        search($(this).children("a").html());
+    });
 }

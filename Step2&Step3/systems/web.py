@@ -3,7 +3,7 @@
 from flask import Flask, request, render_template, jsonify
 from sys import path
 from pathlib import Path
-from core import configs, customDict
+from core import configs, modules, customDict
 
 
 # Constants
@@ -21,15 +21,15 @@ app = Flask(__name__,  template_folder = str(TEMPLATES))
 # Routing
 
 @app.route("/")
-def home():
-    return render_template("home.html")
+def index():
+    return render_template("index.html")
 
 
 @app.route("/search/<string:system>", methods = ("POST",))
 def search(system):
-    if system in configs.modules:
+    if system in modules:
         receive = customDict(request.values)
-        result = configs.modules[system].execute(receive)
+        result = modules[system].execute(receive)
         result["page_size"] = configs[system].page_size
         return jsonify(result)
 
@@ -37,7 +37,7 @@ def search(system):
 @app.route("/system/<string:operation>", methods = ("POST",))
 def system(operation):
     receive = customDict(request.values)
-    result = getattr(configs.modules.system, operation)(receive)
+    result = getattr(modules.system, operation)(receive)
     return jsonify(result)
 
 

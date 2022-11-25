@@ -36,6 +36,9 @@ class config(): # Config of a module
         else:
             conf = readConfig(self.moduleName)
         configs[self.moduleName] = conf
+
+    def save(self):
+        saveConfig(self.moduleName, configs[self.moduleName])
         
 
 class customDict(dict): # Customized dict, where elements are accessible using attributes
@@ -116,10 +119,9 @@ def getES():
 
 
 def initialize():
-    global configs
+    global configs, modules
     configs = customDict()
-
-    configs.modules = importModules()
+    modules = customDict(importModules())
 
 
 initialize()

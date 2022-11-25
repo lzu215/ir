@@ -1,30 +1,6 @@
 @keyframes appended {
-    from {transform: translate(0, 20px);}
+    from {transform: translate(0, 25px);}
     to {transform: translate(0, 0);}
-}
-
-#configsBox {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    max-width: 520px;
-    height: 550px;
-    width: 93%;
-    background-color: rgba(242, 242, 242, 0.7);
-    border-radius: 25px;
-}
-
-#configsBlur {
-    display: none;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
 }
 
 #resultsBox {
@@ -48,33 +24,33 @@
 
 #searchIndicator {
     position: relative;
-    color: #40742d;
+    color: var(--dark-green);
     font-weight: bold;
     letter-spacing: 0.8px;
     font-size: 17px;
 }
 
 #systems {
-    background-color: #fafdfa;
+    background-color: var(--element-white);
     border-radius: 8px;
     appearance: none;
     height: 32px;
     width: 180px;
     padding: 0 10px;
-	color: #40742d;
+	color: var(--dark-green);
     margin: 0;
     transform: translate(20px, 0);
 	border: none;
 	outline: none;
     letter-spacing: 0.5px;
     font-size: 18px;
-    background-image: linear-gradient(-135deg, transparent 50%, #fafdfa 46%),
-    linear-gradient(-225deg, transparent 50%, #fafdfa 46%),
-    linear-gradient(#fafdfa 40%, #979797 40%);
+    background-image: linear-gradient(-135deg, transparent 50%, var(--element-white) 46%),
+        linear-gradient(-225deg, transparent 50%, var(--element-white) 46%),
+        linear-gradient(var(--element-white) 40%, var(--dark-green) 40%);
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size: 20px 22px, 20px 22px, 20px 90%;
     background-position: right 6px bottom, right 6px bottom, right 6px bottom; 
-    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: 2px 2px 10px 3px var(--shadow-light);
 }
 
 #systems:hover {
@@ -87,14 +63,14 @@
     min-width: 700px;
     margin-bottom: 25px;
     border-radius: 15px;
-    background-color: #fafdfa;
-    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.04);
-    animation: appended .3s ease;
+    background-color: var(--element-white);
+    box-shadow: 2px 2px 10px 3px var(--shadow-light);
+    animation: appended .5s ease;
 }
 
 .result:hover {
     cursor: pointer;
-    box-shadow: 2px 10px 14px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 2px 12px 16px 0 var(--shadow-light);
     transform: scale(1.008) translate(0, -2px);
     animation-timing-function: ease-in-out;
 }
@@ -110,19 +86,23 @@
 
 .titleBox {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
 }
 
 .resultTitle {
-    color: #2a4f1d;
+    color: var(--darker-green);
     font-size: 22px;
     font-weight: bold;
     letter-spacing: 0.8px;
     margin-right: 10px;
+    white-space: nowrap;
 }
 
 .publishedTime {
-    color: #2a4f1d;
+    color: var(--darker-green);
+    white-space: nowrap;
 }
 
 .resultDescription {
@@ -193,13 +173,13 @@
 }
 
 .tags-green {
-    background-color: #3fa719;
-    color: white;
+    background-color: var(--tags-green);
+    color: var(--element-white);
 }
 
 .tags-light-green {
-    background-color: #c4ed9f;
-    color: #399604;
+    background-color: var(--tags-light-green);
+    color: var(--tags-light-green-text);
 }
 
 #pagesBox {
@@ -210,9 +190,9 @@
     justify-content: space-between;
     padding: 7px 2px;
     margin-bottom: 30px;
-    background-color: #ffffffaa;
+    background-color: var(--white-transparent-heavy);
     border-radius: 17px;
-    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: 2px 2px 10px 3px var(--shadow-light);
 }
 
 #currentPage::after {
@@ -222,7 +202,7 @@
     height: 6px;
     width: 50%;
     top: 80%;
-    background-color: #f39600;
+    background-color: var(--page-indicator);
     border-radius: 10px;
 }
 
@@ -235,11 +215,11 @@
     width: 50px;
     border-radius: 15px;
     position: relative;
-    color: #40742d;
+    color: var(--dark-green);
 }
 
 .page:hover {
-    background-color: rgba(220, 220, 220, 0.6);
+    background-color: var(--shadow-light);
     cursor: pointer;
 }
 
@@ -248,8 +228,9 @@
     font-weight: bold;
 }
 
-.pageEllipsis:hover {
+.pageEllipsis, #currentPage {
     user-select: none;
     cursor: unset;
+    pointer-events: none;
     background-color: unset;
 }

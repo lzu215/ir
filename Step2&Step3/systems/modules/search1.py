@@ -5,8 +5,8 @@ from core import getES, config, configs
 
 # Config
 
-config(
-    page_size = 10
+config = config(
+    page_size = "10"
 )
 
 

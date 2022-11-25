@@ -6,7 +6,7 @@ from core import getES, config, configs
 # Config
 
 config(
-    page_size = 10
+    page_size = "10"
 )
 
 
