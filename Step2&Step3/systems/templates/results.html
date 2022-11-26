@@ -1,7 +1,0 @@
-<body>
-    <h1>Found {{hits}} for query {{keywords}}: </h1>
-    {% for doc in docs %}
-        <p>{{doc["_source"]['Title']}} by {{doc["_source"]['Url']}}, Tags:{{doc["_source"]["Tags"]}}<br>
-            Views:{{doc["_source"]["Views"]}}, Downloads:{{doc["_source"]["Downloads"]}}</p>
-    {% endfor %}
-</body>
