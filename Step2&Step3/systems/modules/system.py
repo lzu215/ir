@@ -9,11 +9,11 @@ from time import sleep
 # Config
 
 config = config(
-    server_ip = "localhost",
+    server_ip = "121.43.234.160",
     server_port = "9200",
     scheme = "http",
-    username = "",
-    password = ""
+    username = "wbliu20",
+    password = "731126"
 )
 
 
