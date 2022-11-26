@@ -15,11 +15,11 @@ class MinecraftSpider(scrapy.Spider):
     name = 'minecraft'
 
     def start_requests(self):
-        # urls = ['https://www.planetminecraft.com/mods/?p={}'.format(i) for i in range(1, 101)]
-        # for url in urls:
-        #     yield scrapy.Request(url=url, callback=self.parse)
-        url = 'https://www.planetminecraft.com/mod/hypixel-skyblockplus-renew/'
-        yield scrapy.Request(url=url, callback=self.parse_detail)
+        urls = ['https://www.planetminecraft.com/mods/?p={}'.format(i) for i in range(1, 101)]
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse)
+        # url = 'https://www.planetminecraft.com/mod/hypixel-skyblockplus-renew/'
+        # yield scrapy.Request(url=url, callback=self.parse_detail)
 
     def parse(self, response, *args, **kwargs):
         for url in response.css('div.r-preview a::attr(href)').getall():
