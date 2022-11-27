@@ -24,5 +24,5 @@ es = Elasticsearch(
     ssl_context=context,
 )
 
-res = es.indices.delete('wbliu20_team_project')
-print(res)
+# res = es.indices.delete('wbliu20_team_project')
+# print(res)
