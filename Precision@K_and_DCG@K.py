@@ -1,19 +1,16 @@
 import numpy as np
 
 search_results = [1, 1, 1, 1, 1,
-                  1, 0, 0, 1, 1,
-                  1, 1, 0, 1, 1,
-                  0, 1, 0, 1, 1]  # 输入20个0，1数据（随便输，不需要真的去查找了）
+                  1, 1, 1, 1, 1]
 
 Precision = 0
 DCG = search_results[0]
 Average_precision = 0
-IDCG = 1
-NDCG = 0
+iDCG = 1
 relative = 0
 time = 1
 
-for i in range(20):
+for i in range(10):
     result = search_results[i]
     if result:
         relative += 1
@@ -27,11 +24,11 @@ for i in range(20):
     time += 1
 print("----------------------------------------------")
 Average_precision = Average_precision / relative
-print("Average Precision = MAP = %.4f" % Average_precision)
+print("Average Precision = %.4f" % Average_precision)
 print("----------------------------------------------")
 if relative:
     for i in range(1, relative):
-        IDCG += 1/(np.log2(i+1))
+        iDCG += 1/(np.log2(i+1))
     print("DCG = %.4f" % DCG)
-    print("IDCG = %.4f" % IDCG)
-    print("NDCG(20) = DCG/IDCG = %.4f" % (DCG/IDCG))
+    print("iDCG = %.4f" % iDCG)
+    print("nDCG(10) = DCG/iDCG = %.4f" % (DCG/iDCG))
