@@ -216,6 +216,7 @@
     border-radius: 15px;
     position: relative;
     color: var(--dark-green);
+    user-select: none;
 }
 
 .page:hover {

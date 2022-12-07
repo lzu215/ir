@@ -3,7 +3,6 @@
 import core # For importing modules (or would cause circular imports)
 from core import config, configs
 from re import match
-from time import sleep
 
 
 # Config
